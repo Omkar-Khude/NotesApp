@@ -1,0 +1,22 @@
+.fancy-title {
+    font-family: 'Fira Sans', sans-serif;
+    
+    color:#302b2b;
+    text-shadow: 2px 2px 4px #856f6f;
+    font-weight: bold;
+  }
+
+  /* .accordion-item {
+    background-color: rgb(47, 47, 45) !important;
+  }
+   */
+   .centered {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color:#302b2b;
+    text-shadow: 2px 2px 4px #856f6f;
+    font-weight: bold;
+  }

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../fontStyle.css"
+import backgroundImage from '../images/background1.jpeg';
 
 
 const Login = (props) => {
@@ -25,7 +27,7 @@ const Login = (props) => {
     if (json.success) {
       localStorage.setItem("token", json.authtoken);
       props.showAlert("Logged In Successfully", "success");
-      navigate("/");
+      navigate("/home");
     } else {
       props.showAlert("Invalid Credentials!", "danger");
     }
@@ -34,21 +36,31 @@ const Login = (props) => {
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
+  const handleSignUp=()=>{
+    navigate('/signup') 
+    }
   return (
-    <div>
+    <div  style={{
+     
+      backgroundImage: `url('${backgroundImage}')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '93vh',
+      overflow: 'hidden',
+      
+    }}>
       {/* <div className="container-fluid h-100 my-4"> */}
-        <h2 className="row h-100 justify-content-center align-items-center my-2">
-          Login to use iNotebook
-        </h2>
+        <h2 className=" fancy-title row h-100 justify-content-center align-items-center my-5">
+          Login to use NotesApp        </h2>
         <div className="row h-100 justify-content-center align-items-center">
           <div className="col-md-4">
-            <div className="card my-4">
+            <div className="card my-2">
               <div className="card-body">
-                <h4 className="card-title text-center">Login</h4>
+                <h4 className="card-title text-center" style={{ fontSize: '28px'}}>Login</h4>
 
                 <form className="my-3" onSubmit={handleSubmit}>
                   <div className="mb-3">
-                    <label htmlFor="exampleInputEmail1" className="form-label">
+                    <label htmlFor="exampleInputEmail1" className="form-label" style={{ fontSize: '20px'}}>
                       Email address
                     </label>
                     <input
@@ -66,7 +78,7 @@ const Login = (props) => {
                     <label
                       htmlFor="exampleInputPassword1"
                       className="form-label"
-                    >
+                      style={{ fontSize: '20px'}}>
                       Password
                     </label>
                     <input
@@ -89,6 +101,9 @@ const Login = (props) => {
                   >
                     Login
                   </button>
+                  <div className="my-1">
+  <h10 onClick={handleSignUp} style={{ cursor: 'pointer' }} >Dont't have an account? click here to create account.</h10>
+  </div>
                 </form>
               </div>
             </div>

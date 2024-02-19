@@ -15,7 +15,7 @@ const handleLogout=()=>{
     <nav className="navbar bg-dark navbar-expand-lg bg-body-tertiary "data-bs-theme="dark">
       <div className="container-fluid">
         <Link className="navbar-brand" to="#">
-          iNotebook
+          NotesApp
         </Link>
         <button
           className="navbar-toggler"
@@ -31,7 +31,7 @@ const handleLogout=()=>{
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className={`nav-link ${location.pathname==="/"?"active":""}`} aria-current="page" to="/">
+              <Link className={`nav-link ${location.pathname==="/"?"active":""}`} aria-current="page" to="/home">
                 Home
               </Link>
             </li>
@@ -43,12 +43,12 @@ const handleLogout=()=>{
           </ul>
           {!localStorage.getItem('token')?
           <form className="d-flex">
-            <Link className="btn btn-primary bg-dark mx-1" to="/login"  role="button">
+            {/* <Link className="btn btn-primary bg-dark mx-1" to="/login"  role="button">
               Login
             </Link>
             <Link className="btn btn-primary bg-dark mx-1" to="/signup" role="button">
               Signup
-            </Link>
+            </Link> */}
           </form>:<button  onClick={handleLogout} className="btn btn-primary bg-dark">Logout</button>}
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React,{useContext} from 'react'
 import {useState} from 'react'
 import NoteContext from "../context/notes/NoteContext"
+import "../fontStyle.css"
 
 const AddNote = (props) => {
   const context = useContext(NoteContext);
@@ -22,20 +23,20 @@ const AddNote = (props) => {
     }
   return (
     <div>
-           <div className="container my-3">
-      <h2>Add a Note</h2>
+           <div className="container my-5">
+      <h2 className="fancy-title">Add a Note</h2>
       <form className="my-3">
   <div className="mb-3">
-    <label htmlFor="title" className="form-label">Title</label>
-    <input type="text" className="form-control" id="title"  name="title" aria-describedby="title" value={note.title} onChange={onChange} minLength={3} required/>
+    <label htmlFor="title" className="form-label" style={{ fontSize: '20px'}}>Title</label>
+    <input type="text" className="form-control form-control-lg" id="title"  name="title" aria-describedby="title" value={note.title} onChange={onChange} minLength={3} required style={{ width: '700px' }}/>
   </div>
   <div className="mb-3">
-    <label htmlFor="description" className="form-label">Description</label>
-    <input type="text" className="form-control" id="description" name="description" onChange={onChange} value={note.description} minLength={5} required/>
+    <label htmlFor="description" className="form-label" style={{ fontSize: '20px'}}>Description</label>
+    <input type="text" className="form-control form-control-lg" id="description" name="description" onChange={onChange} value={note.description} minLength={5} required style={{ width: '700px' }}/>
   </div>
   <div className="mb-3">
-    <label htmlFor="tag" className="form-label">Tag</label>
-    <input type="text" className="form-control" id="tag" name="tag" value={note.tag} onChange={onChange}/>
+    <label htmlFor="tag" className="form-label" style={{ fontSize: '20px'}}>Tag</label>
+    <input type="text" className="form-control form-control-lg" id="tag" name="tag" value={note.tag} onChange={onChange} style={{ width: '700px' }}/>
   </div>
   <button disabled={note.title.length<5 || note.description.length<5} type="submit" className="btn btn-primary" onClick={handleClick}>Add Note</button>
 </form>
