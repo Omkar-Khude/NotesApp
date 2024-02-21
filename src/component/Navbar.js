@@ -1,9 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Profile from "./Profile";
 
 
 const Navbar = (props) => {
   let navigate=useNavigate()
+  const [showCard, setShowCard] = useState(false);
+
+  const toggleCard = () => {
+    setShowCard(!showCard);
+  };
 
 const handleLogout=()=>{
   localStorage.removeItem('token');
@@ -11,6 +17,12 @@ const handleLogout=()=>{
   props.showAlert("Logged Out Successfully","success") 
   }
   let location=useLocation();
+  const shouldShowNavbar = location.pathname !== "/"; // Hide navbar on display page ("/")
+
+  if (!shouldShowNavbar) {
+    return null; // Render nothing if we are on the display page
+  }
+
   return (
     <nav className="navbar bg-dark navbar-expand-lg bg-body-tertiary "data-bs-theme="dark">
       <div className="container-fluid">
@@ -41,15 +53,23 @@ const handleLogout=()=>{
               </Link>
             </li>
           </ul>
-          {!localStorage.getItem('token')?
+          {localStorage.getItem('token')?
           <form className="d-flex">
-            {/* <Link className="btn btn-primary bg-dark mx-1" to="/login"  role="button">
-              Login
-            </Link>
-            <Link className="btn btn-primary bg-dark mx-1" to="/signup" role="button">
-              Signup
-            </Link> */}
-          </form>:<button  onClick={handleLogout} className="btn btn-primary bg-dark">Logout</button>}
+            <div>
+
+<i className="fa fa-user fa-lg mx-4 text-white " style={{ fontWeight: 'normal' }} aria-hidden="true" onClick={toggleCard}> Profile</i>
+{showCard && (
+  <div className="position-absolute top-70 end-0 p-3 ">
+<Profile/>
+</div>
+)}
+<button  onClick={handleLogout} className="btn btn-primary bg-dark">Logout</button>
+ 
+</div>
+            
+          </form>:null
+  
+}
         </div>
       </div>
     </nav>

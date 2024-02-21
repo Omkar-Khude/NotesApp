@@ -1,12 +1,12 @@
 import React, {useContext, useEffect, useRef, useState} from "react";
 import NoteItem from "./NoteItem";
-import AddNote from "./AddNote";
 import NoteContext from "../context/notes/NoteContext"
 import {useNavigate } from "react-router-dom";
 import "../fontStyle.css"
+import backgroundImage from '../images/background2.png';
 
-const Notes = (props) => {
-  const context = useContext(NoteContext);
+const NotesDisplay = (props) => {
+    const context = useContext(NoteContext);
     const {notes, getNote, editNote} = context;
     const [note,setNote]=useState({id:"",etitle:"",edescription:"",etag:""})
     const ref=useRef(null)
@@ -42,7 +42,15 @@ const Notes = (props) => {
       
   return (
     <>
-    <AddNote showAlert={props.showAlert}/>
+    <div  style={{
+     
+     backgroundImage: `url('${backgroundImage}')`,
+     backgroundSize: 'cover',
+     backgroundPosition: 'center',
+     minHeight: '93vh',
+     overflow: 'hidden',
+     
+   }}>
     <button  ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Launch demo modal
 </button>
@@ -76,10 +84,10 @@ const Notes = (props) => {
     </div>
   </div>
 </div>
-    <div className="row my-3">
+    <div className="row my-3 ">
     
-      <h2 className="fancy-title">You Notes</h2> 
-      <div className="container mx-1">
+      <h2 className="row h-100 fancy-title my-5 justify-content-center align-items-center" >Your Notes</h2> 
+      <div className="container mx-1 ">
         {notes.length===0 && 'No notes to display'}
       </div>
             {notes.map((note)=>{
@@ -87,8 +95,9 @@ const Notes = (props) => {
             })}
 
     </div>
+    </div>
     </>
-  );
-};
+  )
+}
 
-export default Notes;
+export default NotesDisplay

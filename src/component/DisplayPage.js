@@ -20,28 +20,29 @@ const DisplayPage = () => {
     slidesToShow: 1,
     // slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000 // Adjust speed as needed
+    autoplaySpeed: 2500, // Adjust speed as needed
+    pauseOnHover: false
   };
 
   return (
-    <div style={{overflow: 'hidden', height: '93vh',}}>
+    <div style={{overflow: 'hidden', height: '100vh',}}>
       <Slider {...settings}>
 
         <div>
-          <img src={image1} alt="Slide 1" style={{ width: '104%', height: '95%', objectFit: 'cover', objectPosition: 'center' }}/>
+          <img src={image1} alt="Slide 1" style={{ width: '104%', objectFit: 'cover', objectPosition: 'center' }}/>
         </div>
 
         <div>
-          <img src={image2} alt="Slide 2" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}/>
+          <img src={image2} alt="Slide 2" style={{ width: '105%', objectFit: 'cover', objectPosition: 'center' }}/>
         </div>
 
         <div>
-          <img src={image3} alt="Slide 3" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}/>
+          <img src={image3} alt="Slide 3" style={{ width: '100%', objectFit: 'cover', objectPosition: 'center' }}/>
         </div>
       </Slider>
-      <div className="centered" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: 999 }}>
+      <div className="centered" style={{ position: 'absolute', top: '45%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', zIndex: 999 }}>
         <h2>NotesApp - Store Your Notes Online</h2>
-        <button className="btn btn-primary bg-dark btn-lg" onClick={handleSignUp}>Get Started</button>
+        <button className="btn btn-primary bg-dark btn-lg my-2" onClick={handleSignUp}>Get Started</button>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react'
-import Notes from './Notes'
 import backgroundImage from '../images/background2.png';
+import AddNote from './AddNote';
 const Home = (props) => {
   return (
     <div style={{
@@ -12,8 +12,7 @@ const Home = (props) => {
       overflow: 'hidden',
       
     }}>
-   
-<Notes showAlert={props.showAlert}/>
+<AddNote showAlert={props.showAlert}/>
     </div>
     
   )

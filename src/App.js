@@ -10,6 +10,7 @@ import Login from "./component/Login";
 import Signup from "./component/Signup";
 import { useState } from "react";
 import DisplayPage from "./component/DisplayPage";
+import NotesDisplay from "./component/NotesDisplay";
 function App() {
   const [alert, setAlert] = useState(null);
   const showAlert=(message, type)=>{
@@ -27,7 +28,7 @@ function App() {
       <NoteState>
         <Navbar showAlert={showAlert} />
         <Alert alert={alert}/>   
-        {/* <DisplayPage/> */}
+     
         <div>
         
         <Routes>
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/home" element={<Home showAlert={showAlert} />}></Route>
           <Route exact path="/about" element={<About />}></Route>
           <Route exact path="/signup" element={<Signup showAlert={showAlert}/>}></Route>
+          <Route exact path="/displaynotes" element={<NotesDisplay showAlert={showAlert}/>}></Route>
         </Routes>
         </div>
         </NoteState>
