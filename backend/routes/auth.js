@@ -110,4 +110,57 @@ router.post("/getUser", fetchuser, async (req, res) => {
   }
 });
 
+// get api creation for fetching user details - login required
+router.get("/fetchUserDetails", fetchuser, async (req, res) => {
+  try {
+    
+    const user = await User.findById(req.user.id).select('-password');
+    if (!user) {
+      return res.status(404).json({ msg: 'User not found' });
+    }
+    res.json(user);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal server error");
+  }
+});
+
+
+// put api to update the userDetails - login required
+router.put("/updateUser/:id", fetchuser, async (req, res) => {
+  const { name, email} = req.body;
+  try {
+    // logic to create new user object
+    const newUser = {};
+    if (name) {
+      newUser.name = name;
+    }
+    if (email) {
+      newUser.email = email;
+    }
+
+    // Find the user to be updated by userId
+    let userDetails = await User.findById(req.params.id);
+    if (!userDetails) {
+      return res.status(404).send("User Not Found");
+    }
+
+    // Check if the logged-in user is updating their own details
+    if (userDetails._id.toString() !== req.user.id) {
+      return res.status(401).send("You are not allowed to update this user");
+    }
+
+    // Update the user details
+    userDetails = await User.findByIdAndUpdate(
+      req.params.id,
+      { $set: newUser },
+      { new: true }
+    );
+    res.json({ userDetails });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 module.exports = router;
