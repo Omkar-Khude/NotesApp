@@ -56,7 +56,7 @@ const Login = (props) => {
           <div className="col-md-4">
             <div className="card my-2">
               <div className="card-body">
-                <h4 className="card-title text-center" style={{ fontSize: '28px'}}>Login</h4>
+                <h4 className="card-title text-center" style={{ fontSize: '28px', fontWeight: 'bold', color:'#302b2b'}}>Login</h4>
 
                 <form className="my-3" onSubmit={handleSubmit}>
                   <div className="mb-3">
@@ -97,7 +97,7 @@ const Login = (props) => {
                       credentials.password.length < 1
                     }
                     type="submit"
-                    className="btn btn-primary"
+                    className="btn btn-primary bg-dark "
                   >
                     Login
                   </button>

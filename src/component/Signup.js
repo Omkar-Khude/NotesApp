@@ -50,7 +50,7 @@ const Signup = (props) => {
 
         <div className="card my-2">
           <div className="card-body">
-            <h4 className="card-title text-center" style={{ fontSize: '28px'}}>Signup</h4>
+            <h4 className="card-title text-center" style={{ fontSize: '28px', fontWeight: 'bold', color:'#302b2b'}}>Signup</h4>
      <form className="my-3"onSubmit={handleSubmit}>
   <div className="mb-3">
     <label htmlFor="name" className="form-label" style={{ fontSize: '20px'}}>Name</label>
@@ -69,7 +69,7 @@ const Signup = (props) => {
     <label htmlFor="cpassword" className="form-label" style={{ fontSize: '20px'}}>Confirm Password</label>
     <input type="password" className="form-control" name="cpassword"  onChange={onChange} id="cpassword" minLength={5} required/>
   </div>
-  <button type="submit" className="btn btn-primary">Signup</button>
+  <button type="submit" className="btn btn-primary bg-dark">Signup</button>
   <div className="my-1">
   <h10 onClick={handleLogin} style={{ cursor: 'pointer' }} >Already have an account? click here to login.</h10>
   </div>
