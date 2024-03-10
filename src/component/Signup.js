@@ -44,8 +44,8 @@ const Signup = (props) => {
       overflow: 'hidden',
       
     }}>
-<h2 className="fancy-title row h-100 justify-content-center align-items-center my-5 ">Create account to use NotesApp</h2>
-    <div className="row h-100 justify-content-center align-items-center">
+<h2 className="fancy-title row h-100 justify-content-center align-items-center" style={{ marginTop: '58px' }}>Create account to use NotesApp</h2>
+    <div className="row h-100 justify-content-center align-items-center" style={{ marginTop: '40px' }}>
       <div className="col-md-4">
 
         <div className="card my-2">

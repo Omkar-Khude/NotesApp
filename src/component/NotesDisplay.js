@@ -5,6 +5,7 @@ import {useNavigate } from "react-router-dom";
 import "../fontStyle.css"
 import backgroundImage from '../images/background2.png';
 
+
 const NotesDisplay = (props) => {
     const context = useContext(NoteContext);
     const {notes, getNote, editNote} = context;
@@ -39,7 +40,10 @@ const NotesDisplay = (props) => {
         setNote({...note,[e.target.name]:e.target.value})
    
       }
-      
+      const handleAddNotes=()=>{
+        navigate('/home');
+      }
+
   return (
     <>
     <div  style={{
@@ -84,10 +88,12 @@ const NotesDisplay = (props) => {
     </div>
   </div>
 </div>
-    <div className="row my-3 ">
+    <div className="row">
     
-      <h2 className="row h-100 fancy-title my-5 justify-content-center align-items-center" >Your Notes</h2> 
-      <div className="container mx-1 ">
+      <h2 className="row h-100 fancy-title justify-content-center align-items-center" style={{ marginTop: '58px' }}>Your Notes</h2> 
+      
+      <div className="container mx-1 my-2">
+      <button  onClick={handleAddNotes} className="btn btn-primary bg-dark  btn-lg">Add More +</button>
         {notes.length===0 && 'No notes to display'}
       </div>
             {notes.map((note)=>{
